@@ -16,7 +16,7 @@ namespace KennzeichenUeberpruefung
 
         static void Main(string[] args)
         {
-            string wort = Console.ReadLine();
+            string wort = Console.ReadLine().ToUpper();
 
             moeglicheKennzeichen = MoeglichkeitenBekommen(wort);
 
@@ -25,7 +25,7 @@ namespace KennzeichenUeberpruefung
                 AddKennzeichen(y);
             }
 
-            Console.WriteLine("Mögliche Kennzeichen: ");
+            Console.WriteLine("\nMögliche Kennzeichen: ");
             foreach (var x in richtig)
             {
                 bool geht = true;
@@ -80,12 +80,6 @@ namespace KennzeichenUeberpruefung
                 kennzInsg.Insert(0, kennzTemp);
             }
 
-            /*bool geht = true;
-            Autokennzeichen lastIndex = kennzInsg[kennzInsg.Count - 1];
-            if (lastIndex.Buchstaben != lastIndex.Wort && lastIndex.Wort.Length > 0)
-                geht = false;
-
-            if (geht)*/
             if (kennzInsg[kennzInsg.Count - 1].Wort == "")
                 richtig.Add(kennzInsg);
         }
